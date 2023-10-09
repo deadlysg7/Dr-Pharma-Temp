@@ -1,0 +1,67 @@
+@charset "ISO-8859-1";
+.home-page{
+	height: 100vh;
+	width: 100vw;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 100vh;
+}
+.dark-section{
+	grid-row: 1/2;
+	grid-column: 1/2;
+}
+.signup-section{
+	grid-row: 1/2;
+	grid-column: 2/3;
+}
+
+.black-block {
+	background-color: black;
+	animation: fade-in-left 0.6s ease-in-out;
+	color: white;
+}
+
+.black-block-content{
+	margin-top: 3rem;
+	display: grid;
+	justify-items: center;
+	align-items: center;
+	text-align: center;
+	grid-template-rows: max-content 1fr 1fr;
+	grid-template-columns: 100%;
+	padding: 4rem;
+	animation: fade-in-up 1.6s ease-in-out;
+}
+.signin-block-content{
+	display: grid;
+	justify-items: center;
+	align-items: center;
+	text-align: center;
+	grid-template-rows: 1fr 1fr ;
+	grid-template-columns: 100%;
+	padding: 4rem;
+	animation: fade-in-down 1.6s ease-in-out;
+}
+.signin-block-content input, .signin-block-content input .select, .select {
+	box-shadow: 0rem 0rem 0.5rem rgba(15,15,15,0.35);
+	width: 60%;
+	text-align: center;
+	padding: 1rem;
+	margin-bottom: 1rem;
+}
+.signin-block-content button {
+	width: 60%;
+}
+
+.signin-block-content *{
+	transition: all 0.2s linear ;
+}
+.signin-block-content input:hover,.signin-block-content input:active{
+	scale: 1.02;
+}
+
+
+
+
+
+

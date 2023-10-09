@@ -1,0 +1,40 @@
+create database PHARMACY;
+use PHARMACY;
+CREATE TABLE DEPARTMENTS (
+    dept_no INT PRIMARY KEY,
+    dept_name VARCHAR(50) NOT NULL CHECK (
+        dept_name IN ('NEUROLOGY', 'MEDICINE', 'PEDIATRICS', 'DERMATOLOGIST',
+                     'UROLOGY', 'GYNAECOLOGY', 'CARDIOLOGY', 'OPHTHALMOLOGY')
+    )
+);
+
+CREATE TABLE Doctors (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(20) UNIQUE NOT NULL,
+    name VARCHAR(20) NOT NULL,
+    password VARCHAR(20) NOT NULL,
+    join_date DATE NOT NULL,
+    qualifications VARCHAR(20) NOT NULL,
+    dept_no INT,
+    gender ENUM('M', 'F') NOT NULL,
+    FOREIGN KEY (dept_no) REFERENCES Departments(dept_no)
+);
+CREATE TABLE Patients (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(20) UNIQUE NOT NULL,
+    name VARCHAR(20) NOT NULL,
+    password VARCHAR(20) NOT NULL,
+    gender ENUM('M', 'F') NOT NULL
+);
+CREATE TABLE appointments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    made_on DATE NOT NULL,
+    scheduled_date DATE NOT NULL,
+    status ENUM('PENDING', 'COMPLETED', 'ACCEPTED') NOT NULL,
+    diagnosis VARCHAR(100),
+    pat_email VARCHAR(20) NOT NULL,
+    doc_email VARCHAR(20) NOT NULL
+);
+
+
+

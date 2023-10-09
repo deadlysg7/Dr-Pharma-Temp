@@ -1,0 +1,62 @@
+@charset "ISO-8859-1";
+
+
+
+.patient-dashboard{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows:  1fr 1fr;
+	justify-items: center;
+	align-items: center;
+	transition: all 0.5s ease-in-out;
+	animation: colorChangeBackground 4s linear infinite;
+}
+
+/* Box 1 - Oceanic Gradient */
+.box-2 {
+  background: linear-gradient(to bottom, #00008B, #00FFFF);
+}
+
+
+
+/* Box 2 - Sunset Gradient */
+.box-1 {
+  background: linear-gradient(to bottom, #FFD700, #FF4500);
+}
+
+
+
+/* Box 3 - Forest Gradient */
+.box-4 {
+  background: linear-gradient(to bottom, #006400, #32CD32);
+}
+
+
+
+/* Box 4 - Galactic Gradient */
+.box-3 {
+  background: linear-gradient(to bottom, #191970, #8A2BE2);
+}
+
+@keyframes colorChangeBackground {
+  0% {
+    background: linear-gradient(to bottom, #00008B, #00FFFF);
+  }
+  25% {
+    background: linear-gradient(to bottom, #FFD700, #FF4500);
+  }
+  50% {
+    background: linear-gradient(to bottom, #006400, #32CD32);
+  }
+  75% {
+    background: linear-gradient(to bottom, #191970, #8A2BE2);
+  }
+  100% {
+    background: linear-gradient(to bottom, #FFD700, #FF4500);
+  }
+}
+
+.shadow-large{
+	box-shadow: 0rem 0rem 1rem rgba(32,32,32,0.4);
+}
+
