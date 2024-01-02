@@ -1,5 +1,31 @@
-create database PHARMACY;
-use PHARMACY;
+
+Database Name: pharmacy
+Tables used: medicines, orderedmeds, patients, doctors, departments, appointments
+
+Medicines table:
+CREATE TABLE `medicines` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  `description` varchar(45) NOT NULL,
+  `price` varchar(45) NOT NULL,
+  `picture_url` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) 
+
+Orderedmeds table: 
+CREATE TABLE `orderedmeds` (
+  `entryId` int NOT NULL AUTO_INCREMENT,
+  `patient_id` int DEFAULT NULL,
+  `med_id` int DEFAULT NULL,
+  `purchased_date` date DEFAULT NULL,
+  PRIMARY KEY (`entryId`),
+  KEY `orderedmeds_ibfk_1` (`patient_id`),
+  KEY `orderedmeds_ibfk_2` (`med_id`),
+  CONSTRAINT `orderedmeds_ibfk_1` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `orderedmeds_ibfk_2` FOREIGN KEY (`med_id`) REFERENCES `medicines` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) 
+
+Departments table: 
 CREATE TABLE DEPARTMENTS (
     dept_no INT PRIMARY KEY,
     dept_name VARCHAR(50) NOT NULL CHECK (
@@ -8,6 +34,7 @@ CREATE TABLE DEPARTMENTS (
     )
 );
 
+Doctors table:
 CREATE TABLE Doctors (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(20) UNIQUE NOT NULL,
@@ -19,6 +46,8 @@ CREATE TABLE Doctors (
     gender ENUM('M', 'F') NOT NULL,
     FOREIGN KEY (dept_no) REFERENCES Departments(dept_no)
 );
+
+Patients Table:
 CREATE TABLE Patients (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(20) UNIQUE NOT NULL,
@@ -26,6 +55,10 @@ CREATE TABLE Patients (
     password VARCHAR(20) NOT NULL,
     gender ENUM('M', 'F') NOT NULL
 );
+
+
+
+Appointments Table: 
 CREATE TABLE appointments (
     id INT AUTO_INCREMENT PRIMARY KEY,
     made_on DATE NOT NULL,
@@ -35,6 +68,3 @@ CREATE TABLE appointments (
     pat_email VARCHAR(20) NOT NULL,
     doc_email VARCHAR(20) NOT NULL
 );
-
-
-
