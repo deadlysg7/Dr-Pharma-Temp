@@ -44,10 +44,11 @@ Follow these steps to set up and run the project locally on Eclipse IDE:
 6. Explore the Features:
     - Log in with existing credentials or sign up.
     - Test video conferencing, medicine ordering, and appointment booking functionalities.
-
+      
 ### Notes
 - Make sure your MySQL server is running before starting the application.
 - Adjust configurations in `application.properties` as needed.
 - If you encounter any issues, refer to the project documentation or contact the project maintainer.
 
 Happy coding!
+hkjahkjdh
